@@ -7,7 +7,7 @@ interface SectionTransitionProps {
 
 export function SectionTransition({ variant = 'line' }: SectionTransitionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -50px 0px' });
 
   if (variant === 'dot') {
     return (

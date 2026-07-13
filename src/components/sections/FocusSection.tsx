@@ -5,7 +5,7 @@ import { GradientText } from '../ui/GradientText';
 
 export function FocusSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -100px 0px' });
 
   return (
     <section

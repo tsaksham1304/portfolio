@@ -8,7 +8,7 @@ import { MagneticButton } from '../ui/MagneticButton';
 
 export function ContactSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -100px 0px' });
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = async () => {

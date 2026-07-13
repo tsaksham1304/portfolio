@@ -59,7 +59,7 @@ function TechCategoryBlock({
   index: number;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -50px 0px' });
 
   return (
     <motion.div

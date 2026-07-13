@@ -19,7 +19,7 @@ export function AnimatedCounter({
   duration = 2,
 }: AnimatedCounterProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const spring = useSpring(0, { duration: duration * 1000 });
   const display = useTransform(spring, (v) => `${prefix}${v.toFixed(decimals)}${suffix}`);
   const [displayValue, setDisplayValue] = useState(`${prefix}0${suffix}`);

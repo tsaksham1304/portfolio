@@ -8,7 +8,7 @@ import { GlassCard } from '../ui/GlassCard';
 
 export function CertSection() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -100px 0px' });
 
   return (
     <section

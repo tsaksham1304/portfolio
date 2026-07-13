@@ -59,7 +59,7 @@ function ProjectShowcase({ project }: { project: Project }) {
                 className="text-text-tertiary text-xs tracking-[0.3em] uppercase font-bold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: '0px 0px -100px 0px' }}
                 transition={{ duration: 0.6 }}
               >
                 {project.featured ? 'Featured Project' : 'Project Showcase'}
@@ -68,7 +68,7 @@ function ProjectShowcase({ project }: { project: Project }) {
                 className="text-5xl md:text-6xl font-bold tracking-tight mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: '0px 0px -100px 0px' }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 <GradientText variant={project.accentColor}>{project.title}</GradientText>
@@ -77,7 +77,7 @@ function ProjectShowcase({ project }: { project: Project }) {
                 className="text-text-secondary text-xl font-light tracking-wide"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
+                viewport={{ once: true, margin: '0px 0px -100px 0px' }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 {project.subtitle}
@@ -87,7 +87,7 @@ function ProjectShowcase({ project }: { project: Project }) {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <MagneticButton href={project.github}>
@@ -104,7 +104,7 @@ function ProjectShowcase({ project }: { project: Project }) {
               className="md:col-span-7"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
               transition={{ duration: 0.7 }}
             >
               <p className="text-text-secondary text-lg leading-relaxed mb-10 font-light text-justify">
@@ -127,7 +127,7 @@ function ProjectShowcase({ project }: { project: Project }) {
               className="md:col-span-5 flex flex-col justify-between md:border-l border-[var(--border-subtle)] md:pl-12"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '0px 0px -100px 0px' }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <div className="space-y-8">

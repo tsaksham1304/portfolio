@@ -7,7 +7,7 @@ import { GlassCard } from '../ui/GlassCard';
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-200px' });
+  const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -200px 0px' });
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -42,7 +42,7 @@ export function AboutSection() {
                 className="text-lg md:text-xl leading-relaxed text-text-secondary text-justify"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
+                viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                 transition={{
                   duration: 0.7,
                   delay: i * 0.12,
