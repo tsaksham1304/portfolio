@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { identity } from '../../data/portfolio';
+import { ParticleNetwork } from '../ui/ParticleNetwork';
 
 
 export function HeroSection() {
@@ -22,8 +23,10 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
     >
-      {/* Abstract Space Elements - 3D Orbital Rings */}
+      {/* Abstract Space Elements - 3D Orbital Rings & Particles */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
+        <ParticleNetwork />
+        
         <motion.div
           className="absolute rounded-full border border-[rgba(129,140,248,0.15)]"
           style={{ width: '60vw', height: '60vw', maxWidth: '800px', maxHeight: '800px' }}
@@ -51,92 +54,83 @@ export function HeroSection() {
         {/* Left Column: Text & CTA */}
         <div className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start z-20">
           
+          {/* Title Badge */}
+          <motion.div
+            className="flex items-center gap-3 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/5 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 text-transparent bg-clip-text text-xs tracking-[0.2em] uppercase font-bold">
+              Software Developer
+            </span>
+          </motion.div>
+
           {/* Name — massive stable typography */}
-          <div className="mb-6">
-            <h1>
+          <div className="mb-6 w-full">
+            <h1 className="flex flex-col items-center lg:items-start leading-[1.05]">
               <span className="block overflow-hidden flex flex-wrap justify-center lg:justify-start">
-              {nameLetters.map((letter, i) => {
-                const isFirstWord = i < (nameLetters.indexOf(' ') !== -1 ? nameLetters.indexOf(' ') : nameLetters.length);
-                return (
+                {"Hi, I'm".split('').map((letter, i) => (
                   <motion.span
-                    key={i}
-                    className="inline-block"
-                    style={isFirstWord ? {
-                      color: 'var(--text-primary)',
-                      fontSize: 'clamp(3rem, 6vw, 5.5rem)',
-                      fontWeight: 800,
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1.1,
-                    } : {
-                      backgroundImage: 'linear-gradient(135deg, #60a5fa 0%, #22d3ee 50%, #34d399 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                      fontSize: 'clamp(3rem, 6vw, 5.5rem)',
-                      fontWeight: 800,
-                      letterSpacing: '-0.03em',
-                      lineHeight: 1.1,
-                    }}
-                    initial={{ y: '120%', rotateX: -40, opacity: 0 }}
-                    animate={{ y: 0, rotateX: 0, opacity: 1 }}
-                    transition={{
-                      duration: 0.8,
-                      delay: 0.3 + i * 0.04,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                    }}
+                    key={`hi-${i}`}
+                    className="inline-block text-text-primary text-[clamp(3.5rem,6.5vw,6rem)] font-bold tracking-tight"
+                    initial={{ y: '120%', opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 + i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
                     {letter === ' ' ? '\u00A0' : letter}
                   </motion.span>
-                );
-              })}
+                ))}
+              </span>
+              <span className="block overflow-hidden flex flex-wrap justify-center lg:justify-start">
+                {"Saksham.".split('').map((letter, i) => (
+                  <motion.span
+                    key={`saksham-${i}`}
+                    className="inline-block text-[clamp(3.5rem,6.5vw,6rem)] font-bold tracking-tight"
+                    style={{
+                      backgroundImage: 'linear-gradient(to right, #60a5fa, #22d3ee, #34d399)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                    initial={{ y: '120%', opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 + i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </span>
             </h1>
           </div>
 
-          {/* Title */}
-          <motion.p
-            className="text-text-secondary text-sm md:text-lg tracking-[0.3em] uppercase mb-4 font-medium"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2, ease: 'easeOut' }}
-          >
-            {identity.title}
-          </motion.p>
-
-          {/* Tagline */}
-          <motion.p
-            className="gradient-text text-xl md:text-3xl font-semibold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5, ease: 'easeOut' }}
-          >
-            {identity.tagline}
-          </motion.p>
-
           {/* Description */}
           <motion.p
-            className="text-text-secondary text-base md:text-lg max-w-xl leading-relaxed mb-10"
+            className="text-text-secondary/90 text-base md:text-lg max-w-md text-center lg:text-left leading-relaxed mb-10 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
           >
-            {identity.heroDescription}
+            I enjoy transforming ideas into practical software through thoughtful engineering and clean design.
           </motion.p>
 
           {/* CTAs */}
           <motion.div 
-            className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12"
+            className="flex flex-wrap justify-center lg:justify-start gap-4 mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.1, ease: 'easeOut' }}
+            transition={{ duration: 0.8, delay: 1.2, ease: 'easeOut' }}
           >
-            <a href="#projects" className="px-8 py-3 rounded-full border border-accent-emerald/30 text-accent-emerald hover:bg-accent-emerald/10 transition-colors backdrop-blur-sm">
-              View Projects →
+            <a href="#projects" className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2">
+              View Projects <span>→</span>
             </a>
-            <a href="#contact" className="px-8 py-3 rounded-full border border-text-tertiary/30 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm">
-              Get In Touch →
+            <a href="#contact" className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2">
+              Get In Touch <span>→</span>
             </a>
           </motion.div>
+
+
         </div>
 
         {/* Right Column: Image */}
@@ -147,10 +141,8 @@ export function HeroSection() {
              transition={{ duration: 1.5, delay: 0.8, ease: 'easeOut' }}
              className="relative w-full h-full"
            >
-              {/* Animated breathing wrapper with masking */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+              {/* Masking wrapper (Stable) */}
+              <div
                 className="w-full h-full flex justify-center lg:justify-end"
                 style={{
                   maskImage: 'radial-gradient(circle at center, black 40%, transparent 75%)',
@@ -158,15 +150,16 @@ export function HeroSection() {
                 }}
               >
                 <img 
-                  src="/profile.jpeg" 
+                  src="/profile_pic.jpeg" 
                   alt="Saksham Tiwari" 
                   className="w-full h-full object-cover max-w-[500px] lg:max-w-[800px]" 
                   style={{
                     mixBlendMode: 'lighten', // Perfectly blends dark background of photo with website
-                    opacity: 0.95,
+                    opacity: 0.85,
+                    filter: 'brightness(0.9) contrast(1.15)',
                   }}
                 />
-              </motion.div>
+              </div>
            </motion.div>
         </div>
       </motion.div>

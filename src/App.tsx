@@ -2,7 +2,7 @@ import { AuroraBackground } from './components/ui/AuroraBackground';
 import { ParticleField } from './components/ui/ParticleField';
 import { ShootingStars } from './components/ui/ShootingStars';
 import { CustomCursor } from './components/layout/CustomCursor';
-import { FloatingNav } from './components/layout/FloatingNav';
+import { NavBar } from './components/layout/NavBar';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -22,7 +22,7 @@ export function App() {
       <ShootingStars />
       <CustomCursor />
       <ScrollProgress />
-      <FloatingNav />
+      <NavBar />
 
       {/* Scroll narrative */}
       <main>

@@ -105,7 +105,7 @@ export interface TechCategory {
 export const techStack: TechCategory[] = [
   {
     name: "Languages",
-    items: ["Java", "Python", "C", "SQL", "JavaScript", "TypeScript"],
+    items: ["Java", "Python", "C", "C++", "JavaScript", "TypeScript"],
   },
   {
     name: "Frontend",

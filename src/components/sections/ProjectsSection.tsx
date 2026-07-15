@@ -7,7 +7,7 @@ import { MagneticButton } from '../ui/MagneticButton';
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-32">
+    <section id="projects" className="relative py-20">
       {/* Section header */}
       <div className="px-6 md:px-12 lg:px-24 mb-32">
         <div className="max-w-7xl mx-auto">

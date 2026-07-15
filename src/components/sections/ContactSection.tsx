@@ -97,7 +97,7 @@ export function ContactSection() {
           ) : (
             <Copy
               size={16}
-              className="text-text-tertiary group-hover:text-text-secondary transition-colors"
+              className="text-text-secondary group-hover:text-text-primary transition-colors"
             />
           )}
         </motion.button>
@@ -133,7 +133,7 @@ export function ContactSection() {
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-text-tertiary text-xs tracking-[0.2em] uppercase hover:text-text-secondary transition-colors duration-300 mb-4 block mx-auto"
+          className="text-text-secondary text-xs tracking-[0.2em] uppercase hover:text-text-primary transition-colors duration-300 mb-4 block mx-auto"
           data-cursor-hover
         >
           Back to top ↑
