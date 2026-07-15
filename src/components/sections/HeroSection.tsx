@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { identity } from '../../data/portfolio';
 import { ParticleNetwork } from '../ui/ParticleNetwork';
 
 
@@ -14,8 +13,6 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-
-  const nameLetters = identity.name.split('');
 
   return (
     <section
@@ -122,10 +119,24 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2, ease: 'easeOut' }}
           >
-            <a href="#projects" className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2">
+            <a 
+              href="#projects" 
+              className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               View Projects <span>→</span>
             </a>
-            <a href="#contact" className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2">
+            <a 
+              href="#contact" 
+              className="px-6 py-2.5 rounded-md border border-text-secondary/20 text-text-secondary hover:border-text-secondary hover:text-text-primary transition-colors backdrop-blur-sm text-sm font-medium flex items-center gap-2"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Get In Touch <span>→</span>
             </a>
           </motion.div>
