@@ -18,7 +18,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
+      className="relative min-h-[100svh] md:min-h-fit md:py-32 lg:min-h-[100svh] lg:py-0 flex flex-col items-center justify-center px-6 overflow-hidden"
     >
       {/* Abstract Space Elements - 3D Orbital Rings & Particles */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
@@ -45,11 +45,11 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-12 lg:mt-0"
+        className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mt-28 md:mt-0"
         style={{ opacity, y, scale }}
       >
         {/* Left Column: Text & CTA */}
-        <div className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start z-20">
+        <div className="text-center md:text-left order-1 flex flex-col items-center md:items-start z-20">
           
           {/* Title Badge */}
           <motion.div
@@ -66,8 +66,8 @@ export function HeroSection() {
 
           {/* Name — massive stable typography */}
           <div className="mb-6 w-full">
-            <h1 className="flex flex-col items-center lg:items-start leading-[1.05]">
-              <span className="block overflow-hidden flex flex-wrap justify-center lg:justify-start">
+            <h1 className="flex flex-col items-center md:items-start leading-[1.05]">
+              <span className="block overflow-hidden flex flex-wrap justify-center md:justify-start">
                 {"Hi, I'm".split('').map((letter, i) => (
                   <motion.span
                     key={`hi-${i}`}
@@ -80,7 +80,7 @@ export function HeroSection() {
                   </motion.span>
                 ))}
               </span>
-              <span className="block overflow-hidden flex flex-wrap justify-center lg:justify-start">
+              <span className="block overflow-hidden flex flex-wrap justify-center md:justify-start">
                 {"Saksham.".split('').map((letter, i) => (
                   <motion.span
                     key={`saksham-${i}`}
@@ -104,7 +104,7 @@ export function HeroSection() {
 
           {/* Description */}
           <motion.p
-            className="text-text-secondary/90 text-base md:text-lg max-w-md text-center lg:text-left leading-relaxed mb-10 font-light"
+            className="text-text-secondary/90 text-base md:text-lg max-w-md text-center md:text-left leading-relaxed mb-10 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
@@ -114,7 +114,7 @@ export function HeroSection() {
 
           {/* CTAs */}
           <motion.div 
-            className="flex flex-wrap justify-center lg:justify-start gap-4 mb-14"
+            className="flex flex-wrap justify-center md:justify-start gap-4 mb-14"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2, ease: 'easeOut' }}
@@ -145,7 +145,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Column: Image */}
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end relative w-full h-[350px] lg:h-[600px] pointer-events-none">
+        <div className="order-2 flex justify-center md:justify-end relative w-full h-[280px] md:h-[400px] lg:h-[600px] pointer-events-none mt-4 md:mt-0">
            <motion.div
              initial={{ opacity: 0, filter: 'blur(20px)' }}
              animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -154,7 +154,7 @@ export function HeroSection() {
            >
               {/* Masking wrapper (Stable) */}
               <div
-                className="w-full h-full flex justify-center lg:justify-end"
+                className="w-full h-full flex justify-center md:justify-end"
                 style={{
                   maskImage: 'radial-gradient(circle at center, black 40%, transparent 75%)',
                   WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 75%)',
@@ -163,7 +163,7 @@ export function HeroSection() {
                 <img 
                   src="/profile_pic.jpeg" 
                   alt="Saksham Tiwari" 
-                  className="w-full h-full object-cover max-w-[500px] lg:max-w-[800px]" 
+                  className="w-full h-full object-cover max-w-[500px] md:max-w-[800px]" 
                   style={{
                     mixBlendMode: 'lighten', // Perfectly blends dark background of photo with website
                     opacity: 0.85,

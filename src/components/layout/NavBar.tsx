@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { navItems } from '../../data/portfolio';
+import { Menu, X } from 'lucide-react';
 
 export function NavBar() {
   const [activeSection, setActiveSection] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +70,7 @@ export function NavBar() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-2">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -97,7 +99,47 @@ export function NavBar() {
             );
           })}
         </nav>
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="md:hidden text-text-primary p-2 hover:text-accent-emerald transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-16 left-0 right-0 bg-[#06060a]/95 backdrop-blur-xl border-b border-[rgba(255,255,255,0.05)] py-6 px-8 flex flex-col gap-6 shadow-2xl"
+          >
+            {navItems.map((item) => {
+              const sectionId = item.href.replace('#', '');
+              const isActive = activeSection === sectionId;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`text-base font-medium transition-colors duration-300 ${
+                    isActive ? 'text-accent-emerald' : 'text-text-secondary'
+                  }`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
